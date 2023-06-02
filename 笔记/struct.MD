@@ -174,6 +174,7 @@ typedef char ElemType;
 
 ```
 InitList(&L);//构造一个空的线性表
+
 DestroyList(&L) //销毁线性表
 ClearList(&L)//清空线性表
 ListEmpty(&L) //空表返回TRUE 否则返回FLALSE
@@ -202,6 +203,19 @@ typedef struct{
 	ElemType *data; = (ElemType*)malloc(sizeof((ElemType)*SIZE); free（p） 释放p指针所指变量的空间
 	int length;
 }SqList;
+
+
+初始化
+Status InitListSq（SqList&L)
+{
+	L.elem= new ElemAType[SIZE];
+	if(!L.elem)
+	{
+		exit(OVERFLOW);
+	}
+	L.length = 0;
+	return OK;
+}
 ```
 
 顺序表==数组
@@ -216,29 +230,63 @@ typedef struct{
   
   - 线性表长度可变
   
-- ```
-  初始化
-  Status InitListSq（SqList&L)
-  {
-  	L.elem= new ElemAType[SIZE];
-  	if(!L.elem)
-  	{
-  		exit(OVERFLOW);
-  	}
-  	L.length = 0;
-  	return OK;
-  }
-  ```
-
   ## 期望值-平均查找长度-ASL
-
+  
   ```
   ASL=（i=1--》i=n)PiCi
   p=第i个记录被查找的概论
   c=找到第n个记录需要比较的次数
   ```
+  
 
+### 02-5顺序表的优缺点
 
+- 任一元素均可随机存取
+- 缺点
+  - 每次移动需要移动大量的元素
+
+### 02-6链式表示
+
+#### 特点
+
+- 每一个结点分为两个域
+  - 数据域
+  - 指针域
+
+#### 相关术语
+
+- 结点	： 数据元素的存储映像、
+
+- 链表： n个结点由指针链组成的
+
+- 单链表
+
+  - 结点只有一个指针域的链表
+
+- 双链表
+
+  - 结点只有两个指针域的链表
+
+- 循环链表
+
+  - 首尾相接的链表称为循环链表
+
+- 头指针
+
+  - 指向第一个结点的指针
+
+- 头节点
+
+  - 在首元结点之前附设的一个结点
+  - 便于首元结点的处理
+  - 判空
+    - L.next== NULL
+
+- 首元结点
+
+  - 第一个存储数据的结点
+
+  
 
 
 
