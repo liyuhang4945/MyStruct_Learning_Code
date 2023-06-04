@@ -49,11 +49,29 @@ bool ListEmpty(SqList &L) {
   }
 }
 int ListLength(SqList &L) { return L.length; }
+
+Status List_Insert_Sq(SqList &L, int i, ElemType e) {
+  if (i < 1 || i > L.length + 1) {
+    return ERROR; // 不合法的I值
+  }
+  // 当前空间已满
+  if (L.length == SIZE) {
+    return ERROR;
+  }
+
+  for (int j = L.length - 1; j >= i - 1; j--) {
+    L.data[j + 1] = L.data[j]; // 插入位置及之后的元素后移
+  }
+
+  L.data[i - 1] = e;
+  L.length++;
+  return OK;
+}
 int main() {
   // 创建变量
   SqList Sq;
   init_List(Sq);
-  //   Test
+  //     Test
   //   std::cout << Sq.length << std::endl;
   //   std::cout << ListEmpty(Sq) << std::endl;
 
