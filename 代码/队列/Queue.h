@@ -43,6 +43,9 @@ bool Queue_Full(SqQueue &Q) {
   }
   return false;
 }
+
+
+//入栈
 Status Queue_Push_Back(SqQueue &Q, ElemType e) {
   // 队满 if(Queue_Full == true)
   if ((Q.rear + 1) % MAXSIZE == Q.front) {
@@ -55,6 +58,8 @@ Status Queue_Push_Back(SqQueue &Q, ElemType e) {
   return OK;
 }
 
+
+// 出栈
 Status Queue_Pop_Back(SqQueue &Q, ElemType &e) {
   // 队满 if(Queue_empty == true)
   if (Q.rear == Q.front) {
