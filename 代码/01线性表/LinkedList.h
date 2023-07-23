@@ -169,3 +169,17 @@ Status Insert_By_Count(LinkList &L, int i, ElemType &e) {
     return OK;
   }
 }
+
+void ListDelete_L(LinkList&L,int i,ElemType &e){
+  Lnode * p =L;
+  int j =0;
+  while (p!=NULL&&j<i-1)
+  {
+    p=p->next;
+    j++;
+  }
+  Lnode*temp = p->next;
+  e= temp->data;
+  p->next=temp->next;
+  delete temp;
+}
